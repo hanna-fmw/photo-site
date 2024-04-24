@@ -1,95 +1,91 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+'use client';
+import { useState, useEffect } from 'react';
+import Image from 'next/image';
+import styles from './page.module.css';
+import { motion } from 'framer-motion';
 
 export default function Home() {
-  return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+	//We grab the position of the cursor and store it in the state. And by
+	//default we put an object with the x and y values
+	const [mousePosition, setMousePosition] = useState({
+		x: 0,
+		y: 0,
+	});
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+	console.log(mousePosition);
+	//and how do we update the value of the mouse position, ie the x and the y? For that
+	//we can use useEffect! And we run it when the page loads (i.e. empty dependency array):
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+	useEffect(() => {
+		const mouseMove = (e: any) => {
+			//This will console log the x and y values as the mouse moves. And from
+			//this MouseEvent in the console we want to grab the clientX and clientY values
+			console.log(e);
+			//... so to do this we set the mouse position to the clientX and clientY:
+			setMousePosition({
+				x: e.clientX,
+				y: e.clientY,
+			});
+			//So now we get the clientX and clientY values whenever we move the mouse. The
+			//next step is to set the position of our div circle to these same
+			//x and y values (ie give it the same position as the mouse´s position). We
+			//can do this with framer-motion if we want to, or without.
+		};
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
+		//we listen for mousemove, and when that happens we run the mouseMove function
+		window.addEventListener('mousemove', mouseMove);
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
+		//In the return we specify what happens when the component unmounts, in our
+		//case we remove the event listener and also the mouseMove function:
+		return () => {
+			window.removeEventListener('mousemove', mouseMove);
+		};
+	}, []);
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  );
+	//utan framer motion och med separata states för x och y så kan du göra så här:
+	// const [mousePositionX, setMousePositionX] = useState(0);
+	// const [mousePositionY, setMousePositionY] = useState(0);
+	// useEffect(() => {
+	// 	const mouseMove = (e: any) => {
+	// 		console.log(e);
+	// 		setMousePositionX(e.clientX);
+	// 		setMousePositionY(e.clientY);
+	// 	};
+	// 	window.addEventListener('mousemove', mouseMove);
+	// 	return () => {
+	// 		window.removeEventListener('mousemove', mouseMove);
+	// 	};
+	// }, []);
+	//och sedan i jsx:en:
+	//<div style={{ transform: `translateX(${mousePositionX}px) translateY(${mousePositionY}px)` }} className={styles.cursor}></div>
+
+const variants = {
+	default: {
+		x: mousePosition.x,
+		y: mousePosition.y,
+	}
+}
+
+	return (
+		<>
+			<motion.div className={styles.cursor} variants={variants} ></motion.div>
+			<main className={styles.main}>
+				<Image src='/hero.png' width={500} height={500} alt='Hero Image' className={styles.hero_image} />
+				<section className={styles.hero}>
+					<aside className={styles.hero_left}>
+						<h1 className={styles.hero_heading}>
+							<span className={styles.line_1}>PHOTO</span> <br /> <span className={styles.line_2}>GRAPHY</span>
+						</h1>
+					</aside>
+					<aside className={styles.hero_right}>
+						<p className={styles.hero_text_container}>
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem cumque officia vitae aspernatur voluptatum hic provident! Minus
+							cum excepturi maiores laborum saepe. Neque facere, obcaecati omnis sed quia doloremque repellat!
+						</p>
+					</aside>
+					<button className={styles.order_btn}>Order Now</button>
+				</section>
+			</main>
+		</>
+	);
 }
