@@ -1,20 +1,22 @@
 .main {
-  width: 100vw;
+  height: 90vh;
 }
 
 .hero {
-  height: 100vh;
+  height: 90vh;
   position: relative;
-  display: grid;
-  grid-template-columns: repeat(2, 50%);
+  display: flex;
+  justify-content: space-between;
 }
 
 .hero_left {
   background-color: var(--bg-greenblue);
+  flex: 1;
 }
 
 .hero_right {
   background-color: var(--bg-dark);
+  flex: 1;
 }
 
 .hero_image {
@@ -23,12 +25,13 @@
   left: 50%;
   transform: translateX(-50%);
   z-index: 1;
+  object-fit: cover;
 }
 
 .order_btn {
   position: absolute;
   left: 50%;
-  bottom: 8rem;
+  bottom: 4rem;
   transform: translateX(-50%);
   z-index: 5;
   background-color: transparent;
@@ -40,27 +43,22 @@
 }
 
 .hero_heading {
-  font-size: 90px;
   color: var(--heading-light);
-  position: absolute;
-  top: 30%;
-  left: 15%;
+  padding: 2rem;
 }
 
 .line_2 {
   display: inline-block;
-  transform: translateX(15%);
+  transform: translateX(20%);
 }
 
 .hero_text_container {
-  position: absolute;
-  width: 25%;
-  top: 60%;
-  right: 15%;
+  text-align: right;
+  padding: 1rem;
+  font-size: 10px;
 }
 
 .cursor {
-  /* background-color: #111; */
   background-color: #111;
   height: 32px;
   width: 32px;
@@ -70,4 +68,8 @@
   left: 0;
   z-index: 100;
   mix-blend-mode: difference;
+}
+
+.about_container {
+  background-color: var(--bg-dark);
 }

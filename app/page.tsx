@@ -58,12 +58,12 @@ export default function Home() {
   }, []);
   //och sedan i jsx:en:
 
-  const variants = {
-    default: {
-      x: mousePosition.x,
-      y: mousePosition.y,
-    },
-  };
+  //   const variants = {
+  //     default: {
+  //       x: mousePosition.x,
+  //       y: mousePosition.y,
+  //     },
+  //   };
 
   return (
     <>
@@ -72,13 +72,14 @@ export default function Home() {
         variants={variants}
         animate="default"
       ></motion.div> */}
-      <div
-        style={{
-          transform: `translateX(${mousePositionX - 16}px) translateY(${mousePositionY - 16}px)`,
-        }}
-        className={styles.cursor}
-      ></div>
+
       <main className={styles.main}>
+        <div
+          style={{
+            transform: `translateX(${mousePositionX - 16}px) translateY(${mousePositionY - 16}px)`,
+          }}
+          className={styles.cursor}
+        ></div>
         <Image
           src="/hero.png"
           width={500}
@@ -101,7 +102,20 @@ export default function Home() {
               facere, obcaecati omnis sed quia doloremque repellat!
             </p>
           </aside>
-          <button className={styles.order_btn}>Order Now</button>
+        </section>
+        <button className={styles.order_btn}>Order Now</button>
+
+        <section className={styles.about_container}>
+          <h1>ABOUT US</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae neque
+            voluptatum excepturi debitis quibusdam fugiat. Placeat dolor odio
+            dignissimos ea minus aspernatur vitae quos aut obcaecati ipsum?
+            Reiciendis, magni quas. Nemo a veritatis nisi, fugit atque
+            inventore. Totam amet commodi itaque consequatur sit, quae
+            blanditiis voluptatibus fugit doloremque natus ipsam rerum? Adipisci
+            ex nemo delectus amet quisquam quaerat dolore illum.
+          </p>
         </section>
       </main>
     </>
