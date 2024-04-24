@@ -1,5 +1,4 @@
 .main {
-  height: 90vh;
 }
 
 .hero {
@@ -20,6 +19,7 @@
 }
 
 .hero_image {
+  width: 100%;
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -55,7 +55,6 @@
 .hero_text_container {
   text-align: right;
   padding: 1rem;
-  font-size: 10px;
 }
 
 .cursor {
@@ -72,4 +71,49 @@
 
 .about_container {
   background-color: var(--bg-dark);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem 1rem;
+}
+
+.about_bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+.about_bottom > div {
+  border-right: 1px solid var(--heading-light);
+}
+
+.facts_card {
+  padding: 0.4rem;
+}
+
+.carousel_container {
+  background-color: #0d0f11;
+  width: 100vw;
+  padding-block: 2rem;
+}
+
+.carousel {
+  height: 20vh;
+  width: 100%;
+  object-fit: cover;
+}
+
+.arrows {
+  text-align: center;
+  padding: 1rem;
+}
+
+.arrows > i {
+  padding: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .about_top {
+    display: flex;
+    justify-content: space-between;
+  }
 }

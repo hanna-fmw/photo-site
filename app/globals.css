@@ -63,14 +63,22 @@ body {
 h1 {
   font-family: var(--font-cormorant);
   color: var(--heading-light);
+  margin-bottom: 0.5rem;
 }
 
 p {
   color: var(--text-grey);
   font-family: var(--font-roboto);
+  font-size: 0.8rem;
 }
 
 ul,
 li {
   list-style-type: none;
+}
+
+i {
+  color: var(--text-grey);
+  font-family: var(--font-roboto);
+  font-size: 1rem;
 }

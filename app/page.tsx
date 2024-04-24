@@ -106,16 +106,45 @@ export default function Home() {
         <button className={styles.order_btn}>Order Now</button>
 
         <section className={styles.about_container}>
-          <h1>ABOUT US</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae neque
-            voluptatum excepturi debitis quibusdam fugiat. Placeat dolor odio
-            dignissimos ea minus aspernatur vitae quos aut obcaecati ipsum?
-            Reiciendis, magni quas. Nemo a veritatis nisi, fugit atque
-            inventore. Totam amet commodi itaque consequatur sit, quae
-            blanditiis voluptatibus fugit doloremque natus ipsam rerum? Adipisci
-            ex nemo delectus amet quisquam quaerat dolore illum.
-          </p>
+          <article className={styles.about_top}>
+            <h1>ABOUT US</h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
+              neque voluptatum excepturi debitis quibusdam fugiat. Placeat dolor
+              odio dignissimos ea minus aspernatur vitae quos aut obcaecati
+              ipsum? Reiciendis, magni quas. Nemo a veritatis nisi, fugit atque
+              inventore. Totam amet commodi itaque consequatur sit, quae
+              blanditiis voluptatibus fugit doloremque natus ipsam rerum?
+              Adipisci ex nemo delectus amet quisquam quaerat dolore illum.
+            </p>
+          </article>
+          <article className={styles.about_bottom}>
+            <div className={styles.facts_card}>
+              <h1>+10 Years</h1>
+              <p>Experience</p>
+            </div>
+            <div className={styles.facts_card}>
+              <h1>+450</h1>
+              <p>Customers</p>
+            </div>
+            <div className={styles.facts_card}>
+              <h1>+10 Years</h1>
+              <p>Portfolio Photos</p>
+            </div>
+          </article>
+        </section>
+        <section className={styles.carousel_container}>
+          <Image
+            src="/carousel_mock.png"
+            alt="Photo Carousel"
+            width={300}
+            height={300}
+            className={styles.carousel}
+          />
+          <aside className={styles.arrows}>
+            <i>&lt;&lt;</i>
+            <i>&gt;&gt;</i>
+          </aside>
         </section>
       </main>
     </>
