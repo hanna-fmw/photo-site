@@ -1,71 +1,73 @@
 .main {
-	width: 100vw;
+  width: 100vw;
 }
 
 .hero {
-	height: 100vh;
-	position: relative;
-	display: grid;
-	grid-template-columns: repeat(2, 50%);
+  height: 100vh;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
 }
 
 .hero_left {
-	background-color: var(--bg-greenblue);
+  background-color: var(--bg-greenblue);
 }
 
 .hero_right {
-	background-color: var(--bg-dark);
+  background-color: var(--bg-dark);
 }
 
 .hero_image {
-	position: absolute;
-	bottom: 0;
-	left: 50%;
-	transform: translateX(-50%);
-	z-index: 1;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
 }
 
 .order_btn {
-	position: absolute;
-	left: 50%;
-	bottom: 8rem;
-	transform: translateX(-50%);
-	z-index: 5;
-	background-color: transparent;
-	border: 1px solid var(--text-grey);
-	color: var(--text-grey);
-	font-family: var(--font-roboto);
-	font-size: 12px;
-	padding: 0.6rem 2rem;
+  position: absolute;
+  left: 50%;
+  bottom: 8rem;
+  transform: translateX(-50%);
+  z-index: 5;
+  background-color: transparent;
+  border: 1px solid var(--text-grey);
+  color: var(--text-grey);
+  font-family: var(--font-roboto);
+  font-size: 12px;
+  padding: 0.6rem 2rem;
 }
 
 .hero_heading {
-	font-size: 90px;
-	color: var(--heading-light);
-	position: absolute;
-	top: 30%;
-	left: 15%;
+  font-size: 90px;
+  color: var(--heading-light);
+  position: absolute;
+  top: 30%;
+  left: 15%;
 }
 
 .line_2 {
-	display: inline-block;
-	transform: translateX(15%);
+  display: inline-block;
+  transform: translateX(15%);
 }
 
 .hero_text_container {
-	position: absolute;
-	width: 25%;
-	top: 60%;
-	right: 15%;
+  position: absolute;
+  width: 25%;
+  top: 60%;
+  right: 15%;
 }
 
 .cursor {
-	background-color: #111;
-	height: 32px;
-	width: 32px;
-	border-radius: 50%;
-	position: fixed;
-	top: 0;
-	left: 0;
-	z-index: 100;
+  /* background-color: #111; */
+  background-color: #111;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  mix-blend-mode: difference;
 }
