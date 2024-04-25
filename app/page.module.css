@@ -62,7 +62,7 @@
   padding: 1rem;
 }
 
-.cursor {
+/* .cursor {
   background-color: #111;
   height: 32px;
   width: 32px;
@@ -72,7 +72,7 @@
   left: 0;
   z-index: 100;
   mix-blend-mode: difference;
-}
+} */
 
 .about_container {
   background-color: var(--bg-dark);
@@ -94,27 +94,27 @@
 .facts_card {
   padding: 0.4rem;
 }
-
+/* 
 .carousel_container {
   background-color: #0d0f11;
   width: 100vw;
   padding-block: 2rem;
-}
+} */
 
-.carousel {
+/* .carousel {
   height: 20vh;
   width: 100%;
   object-fit: cover;
-}
+} */
 
-.arrows {
+/* .arrows {
   text-align: center;
   padding: 1rem;
 }
 
 .arrows > i {
   padding: 0.5rem;
-}
+} */
 
 @media (min-width: 768px) {
   .about_top {

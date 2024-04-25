@@ -1,0 +1,21 @@
+.swiper {
+  height: 96px;
+  width: 100vw;
+}
+
+.carousel_img_container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: #0d0f11;
+  padding-block: 2rem;
+}
+
+.carousel_image {
+  /* display: block; */
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}

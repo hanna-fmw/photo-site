@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import styles from "./page.module.css";
 import { motion } from "framer-motion";
+import Carousel from "./components/carousel/Carousel";
 
 export default function Home() {
   //We grab the position of the cursor and store it in the state. And by
@@ -134,18 +135,20 @@ export default function Home() {
             </div>
           </article>
         </section>
-        <section className={styles.carousel_container}>
-          <Image
+        {/* <section className={styles.carousel_container}> */}
+        <section>
+          {/* <Image
             src="/carousel_mock.png"
             alt="Photo Carousel"
             width={300}
             height={300}
             className={styles.carousel}
-          />
-          <aside className={styles.arrows}>
+          /> */}
+          <Carousel />
+          {/* <aside className={styles.arrows}>
             <i>&lt;&lt;</i>
             <i>&gt;&gt;</i>
-          </aside>
+          </aside> */}
         </section>
       </main>
     </>
