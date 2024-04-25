@@ -80,14 +80,15 @@ export default function Home() {
           }}
           className={styles.cursor}
         ></div>
-        <Image
-          src="/hero.png"
-          width={500}
-          height={500}
-          alt="Hero Image"
-          className={styles.hero_image}
-        />
+
         <section className={styles.hero}>
+          <Image
+            src="/hero.png"
+            width={500}
+            height={500}
+            alt="Hero Image"
+            className={styles.hero_image}
+          />
           <aside className={styles.hero_left}>
             <h1 className={styles.hero_heading}>
               <span className={styles.line_1}>PHOTO</span> <br />{" "}
@@ -102,8 +103,8 @@ export default function Home() {
               facere, obcaecati omnis sed quia doloremque repellat!
             </p>
           </aside>
+          <button className={styles.order_btn}>Order Now</button>
         </section>
-        <button className={styles.order_btn}>Order Now</button>
 
         <section className={styles.about_container}>
           <article className={styles.about_top}>

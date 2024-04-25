@@ -1,21 +1,26 @@
 .main {
+  /* width: 100vw; */
 }
 
 .hero {
-  height: 90vh;
+  height: 60vh;
+  width: 100vw;
   position: relative;
   display: flex;
   justify-content: space-between;
+  /* overflow-x: hidden; */
 }
 
 .hero_left {
   background-color: var(--bg-greenblue);
-  flex: 1;
+  width: 50%;
+  /* height: 100%; */
 }
 
 .hero_right {
   background-color: var(--bg-dark);
-  flex: 1;
+  width: 50%;
+  /*  height: 100%; */
 }
 
 .hero_image {
