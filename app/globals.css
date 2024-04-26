@@ -83,6 +83,18 @@ i {
   font-size: 1rem;
 }
 
+span.swiper-pagination-bullet.swiper-pagination-bullet {
+  background-color: var(--heading-light);
+  border: solid 1px #0d0f11;
+  opacity: 1;
+}
+
+span.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background-color: black;
+  border: solid 1px var(--heading-light);
+  opacity: 1;
+}
+
 /* "--swiper-pagination-color": "#FFBA08",
     "--swiper-pagination-bullet-color": "#FFBA08", // Change bullet color
     "--swiper-pagination-bullet-active-color": "#FFBA08", // Change active bullet color
@@ -96,14 +108,3 @@ i {
 .swiper-pagination-bullet-active-color {
   background-color: #0d0f11;
 } */
-
-span.swiper-pagination-bullet.swiper-pagination-bullet {
-  background-color: rgb(241, 241, 241);
-  border: solid 1px #0d0f11;
-  opacity: 1;
-}
-
-span.swiper-pagination-bullet.swiper-pagination-bullet-active {
-  background-color: black;
-  opacity: 1;
-}
