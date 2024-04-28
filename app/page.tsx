@@ -4,14 +4,19 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import { motion } from "framer-motion";
 import Carousel from "./components/carousel/Carousel";
+import { useImageList } from "@/context/imageListContext";
 
 export default function Home() {
+  const { imageList } = useImageList();
+
   //We grab the position of the cursor and store it in the state. And by
   //default we put an object with the x and y values
   const [mousePosition, setMousePosition] = useState({
     x: 0,
     y: 0,
   });
+
+  const [file, setFile] = useState<File>();
 
   console.log(mousePosition);
   //and how do we update the value of the mouse position, ie the x and the y? For that
@@ -66,6 +71,43 @@ export default function Home() {
   //     },
   //   };
 
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    //If the user didn´t add a file, then we don´t have anything to handle
+    if (!file) return;
+
+    try {
+      //We create a new Formdata (tror att när man använder new innan så är det
+      //en constructor som alltså skapar ett objekt), and then we set the file that
+      //the user has selected in to this data (ie the data variable we´ve defined
+      //for our new FormData), and then we are going to make a fetch request, and
+      //we send the body as the form data (body: data). And when you do it
+      //this way, i.e. when you set the data to be the FormData it is automatically
+      //going to set the headers and handle all the multi-part form uploading for
+      //you, it´s all just going to work. We can test this by uploading a file (gå bara)
+      //till localhost och klicka på Choose File och Upload-knappen som vi skapat i
+      //vårt formulär nedan. Gå sedan till Network så ser du kan du se vår body på
+      //payload-fliken (Form Data file: (binary)), och du ser att vår fetch går till
+      //rätt route (http://localhost:3000/api/upload), att det är en POST request osv.
+      //Vi får än så länge ett 500-meddelande på General-fliken men det är bara eftersom
+      //vi ännu inte skapat vår route (som vi skapar strax i api/upload/route.ts)
+
+      const data = new FormData();
+      data.set("file", file);
+
+      //Vi gör en fetch till vårt api/route som vi skapat på sökvägen /api/upload
+      const res = await fetch("/api/upload", {
+        method: "POST",
+        body: data,
+      });
+      //handle the error
+      if (!res.ok) throw new Error(await res.text());
+    } catch (e: any) {
+      //Handle errors here
+      console.error(e);
+    }
+  };
+
   return (
     <>
       {/* <motion.div
@@ -75,12 +117,12 @@ export default function Home() {
       ></motion.div> */}
 
       <main className={styles.main}>
-        <div
+        {/* <div
           style={{
             transform: `translateX(${mousePositionX - 16}px) translateY(${mousePositionY - 16}px)`,
           }}
           className={styles.cursor}
-        ></div>
+        ></div> */}
 
         <section className={styles.hero}>
           <Image
@@ -149,6 +191,17 @@ export default function Home() {
             <i>&lt;&lt;</i>
             <i>&gt;&gt;</i>
           </aside> */}
+        </section>
+        <section>
+          <h1>Images uploaded by the photographer</h1>
+          {imageList.map((url, i) => {
+            return (
+              <div key={i}>
+                {/* @ts-ignore */}
+                <img src={url} className={styles.photo} />
+              </div>
+            );
+          })}
         </section>
       </main>
     </>
