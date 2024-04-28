@@ -12,41 +12,35 @@ import "swiper/css/pagination";
 
 const Carousel = () => {
   return (
-    <section className={styles.carousel_container}>
-      <div>
-        <Swiper
-          slidesPerView={3}
-          spaceBetween={0}
-          pagination={{
-            clickable: true,
-          }}
-          //   pagination={{
-          //     type: "fraction",
-          //   }}
-          modules={[Pagination, Navigation]}
-          className={styles.swiper}
-        >
-          {images.map((image, i) => {
-            return (
-              <>
-                <SwiperSlide>
-                  <div className={styles.carousel_img_container}>
-                    <Image
-                      key={i}
-                      src={image}
-                      width={200}
-                      height={200}
-                      alt="Gallery Image"
-                      className={styles.carousel_image}
-                    />
-                  </div>
-                </SwiperSlide>
-              </>
-            );
-          })}
-        </Swiper>
-      </div>
-    </section>
+    <Swiper
+      slidesPerView={3}
+      spaceBetween={0}
+      pagination={{
+        clickable: true,
+      }}
+      modules={[Pagination, Navigation]}
+      className={styles.swiper}
+      autoplay
+    >
+      {images.map((image, i) => {
+        return (
+          <>
+            <SwiperSlide>
+              <div className={styles.carousel_img_container}>
+                <Image
+                  key={i}
+                  src={image}
+                  width={200}
+                  height={200}
+                  alt="Gallery Image"
+                  className={styles.carousel_image}
+                />
+              </div>
+            </SwiperSlide>
+          </>
+        );
+      })}
+    </Swiper>
   );
 };
 

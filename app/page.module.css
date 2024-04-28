@@ -1,26 +1,19 @@
-.main {
-  /* width: 100vw; */
-}
-
 .hero {
   height: 60vh;
   width: 100vw;
   position: relative;
   display: flex;
   justify-content: space-between;
-  /* overflow-x: hidden; */
 }
 
 .hero_left {
   background-color: var(--bg-greenblue);
   width: 50%;
-  /* height: 100%; */
 }
 
 .hero_right {
   background-color: var(--bg-dark);
   width: 50%;
-  /*  height: 100%; */
 }
 
 .hero_image {
@@ -62,18 +55,6 @@
   padding: 1rem;
 }
 
-/* .cursor {
-  background-color: #111;
-  height: 32px;
-  width: 32px;
-  border-radius: 50%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 100;
-  mix-blend-mode: difference;
-} */
-
 .about_container {
   background-color: var(--bg-dark);
   display: flex;
@@ -94,31 +75,28 @@
 .facts_card {
   padding: 0.4rem;
 }
-/* 
-.carousel_container {
-  background-color: #0d0f11;
-  width: 100vw;
-  padding-block: 2rem;
-} */
 
-/* .carousel {
-  height: 20vh;
-  width: 100%;
-  object-fit: cover;
-} */
-
-/* .arrows {
-  text-align: center;
-  padding: 1rem;
+.h1 {
+  text-align: right;
+  padding-right: 1rem;
 }
 
-.arrows > i {
-  padding: 0.5rem;
-} */
+.portfolio_section {
+  padding-block: 2rem;
+}
+
+.image_gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: var(--bg-dark);
+  gap: 1rem;
+}
 
 .photo {
-  width: 300px;
-  margin: 10px;
+  width: auto;
+  height: 30vw;
+  object-fit: cover;
 }
 
 @media (min-width: 768px) {

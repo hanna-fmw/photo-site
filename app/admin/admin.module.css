@@ -6,7 +6,27 @@
   flex-direction: column;
 }
 
+.admin_header {
+  width: 80vw;
+  background-color: var(--bg-dark);
+  padding-block: 2rem;
+}
+
+.btn_container {
+  padding-block: 2rem;
+}
+
+.btn {
+  background-color: var(--bg-greenblue);
+  color: var(--heading-light);
+  padding: 0.5rem 1rem;
+  border: none;
+  width: 120px;
+}
+
 .photo {
-  width: 300px;
+  width: 80vw;
+  height: auto;
+  object-fit: cover;
   margin: 10px;
 }

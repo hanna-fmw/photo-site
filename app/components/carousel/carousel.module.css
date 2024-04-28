@@ -1,5 +1,5 @@
 .swiper {
-  height: 96px;
+  height: 30vh;
   width: 100vw;
 }
 
@@ -9,13 +9,12 @@
   width: 100%;
   align-items: center;
   justify-content: center;
-  background-color: #0d0f11;
+  background-color: var(--bg-dark);
   padding-block: 2rem;
 }
 
 .carousel_image {
-  /* display: block; */
+  height: 100%;
   width: 100%;
-  height: auto;
   object-fit: cover;
 }

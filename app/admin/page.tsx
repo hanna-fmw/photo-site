@@ -1,5 +1,6 @@
 "use client";
 import styles from "./admin.module.css";
+import Image from "next/image";
 import { ChangeEvent } from "react";
 import { useState, useEffect } from "react";
 import {
@@ -56,24 +57,47 @@ const AdminPage = () => {
 
   return (
     <main className={styles.admin}>
-      <input
-        type="file"
-        onChange={(e: ChangeEvent<HTMLInputElement>) => {
-          if (e.target.files && e.target.files.length > 0) {
-            setFile(e.target.files[0]);
-          } else {
-            setFile(null);
-          }
-        }}
-      />
-      <button onClick={uploadImage}>Upload Image</button>
-      {/* We have set our imageList to an array of items/urls for each image in our storage bucket */}
+      <section className={styles.admin_header}>
+        <h2>Upload photos to Firebase</h2>
+        <p>
+          Upload portfolio photos to Firebase Storage. These photos will
+          automatically display in the Portfolio section on the landing page
+        </p>
+        <section className={styles.btn_container}>
+          <input
+            className={styles.btn}
+            type="file"
+            onChange={(e: ChangeEvent<HTMLInputElement>) => {
+              if (e.target.files && e.target.files.length > 0) {
+                setFile(e.target.files[0]);
+              } else {
+                setFile(null);
+              }
+            }}
+          />
+          <button onClick={uploadImage} className={styles.btn}>
+            Upload File
+          </button>
+        </section>
 
+        <h2>Currently uploaded photos</h2>
+        <p>
+          These are the photos that are currently stored in Firebase Storage.{" "}
+        </p>
+
+        {/* We have set our imageList to an array of items/urls for each image in our storage bucket */}
+      </section>
       {imageList.map((url, i) => {
         return (
           <div key={i}>
             {/* @ts-ignore */}
-            <img src={url} className={styles.photo} />
+            <Image
+              src={url}
+              className={styles.photo}
+              width={100}
+              height={100}
+              alt="Portfolio image"
+            />
           </div>
         );
       })}
