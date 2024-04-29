@@ -1,9 +1,29 @@
 .nav {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   height: 4rem;
   background-color: rgba(15, 15, 15, 0.13);
   padding: 2rem;
   color: #dcdbdb;
   z-index: 150;
+}
+
+.admin_btn {
+  background-color: var(--bg-dark);
+  color: var(--text-grey);
+  font-size: 12px;
+  font-family: var(--font-roboto);
+
+  border: 1px solid var(--text-grey);
+  padding: 0.4rem 1rem;
+}
+
+.nav_title {
+  display: inline-block;
+}
+
+.nav_title,
+.admin_btn {
+  font-family: var(--font-cormorant);
 }
