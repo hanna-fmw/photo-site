@@ -5,6 +5,7 @@ import Carousel from "./components/carousel/Carousel";
 import { useImageList } from "@/context/imageListContext";
 
 export default function Home() {
+  //@ts-ignore
   const { imageList } = useImageList();
 
   return (
