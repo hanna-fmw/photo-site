@@ -28,7 +28,7 @@
   position: absolute;
   bottom: 0;
   left: 50%;
-  transform: translateX(-50%);  
+  transform: translateX(-50%);
   object-fit: cover;
 }
 
@@ -36,7 +36,7 @@
   position: absolute;
   left: 50%;
   bottom: 2.5rem;
-  transform: translateX(-50%);  
+  transform: translateX(-50%);
   background-color: transparent;
   border: 1px solid var(--text-grey);
   color: var(--text-grey);
@@ -108,6 +108,10 @@
   .hero_image {
     width: 60vw;
   }
+
+  .photo {
+    height: 20vw;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -115,7 +119,10 @@
     width: 45vw;
   }
   .main {
-    /* width: 80vw;
-    margin: 0 auto; */
+    width: 60vw;
+    margin: 0 auto;
+  }
+  .photo {
+    height: 10vw;
   }
 }
