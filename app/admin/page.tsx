@@ -85,9 +85,8 @@ const AdminPage = () => {
       {imageList.map((url, i) => {
         return (
           <div key={i}>
-            {/* @ts-ignore */}
             <Image
-              src={url}
+              src={url as unknown as string}
               className={styles.photo}
               width={100}
               height={100}
