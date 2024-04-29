@@ -12,8 +12,8 @@ export default function Home() {
       <section className={styles.hero}>
         <Image
           src="/hero.png"
-          width={500}
-          height={500}
+          width={400}
+          height={400}
           alt="Hero Image"
           className={styles.hero_image}
         />
@@ -25,10 +25,8 @@ export default function Home() {
         </aside>
         <aside className={styles.hero_right}>
           <p className={styles.hero_text_container}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Exercitationem cumque officia vitae aspernatur voluptatum hic
-            provident! Minus cum excepturi maiores laborum saepe. Neque facere,
-            obcaecati omnis sed quia doloremque repellat!
+            Lorem ipsum dolor <br /> consectetur elit <br /> sit amit vitae,{" "}
+            <br /> neq fugiat.
           </p>
         </aside>
         <button className={styles.order_btn}>Order Now</button>

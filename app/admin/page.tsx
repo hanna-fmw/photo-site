@@ -18,16 +18,15 @@ type Image = {
 };
 
 const AdminPage = () => {
-  //A state to hold info about which image the user has picked
+  //State to hold info about which image the user has picked
   const [file, setFile] = useState<File | null>(null);
 
-  //Function triggered by Upload button that will upload the image to firebase storage
+  //Upload image to Firebase Storage on click
   const uploadImage = () => {
     if (file == null) return;
-    //We create a reference for the file in its location in the storage bucket
+
     const imageRef = ref(storage, `images/${file.name + v4()}`);
-    //We upload the actual image to the imageRef location. We use snapshot in getDownloadURL to get the url, so that we can download (and render) it
-    //immediately after uploading it:
+
     uploadBytes(imageRef, file).then((snapshot) => {
       getDownloadURL(snapshot.ref).then((url) => {
         //@ts-ignore
@@ -36,16 +35,12 @@ const AdminPage = () => {
     });
   };
 
-  //We keep track of the URL for each of the images in our storage bucket:
+  //State to hold the urls for the images in our storage bucket:
   const [imageList, setImageList] = useState<Image[]>([]);
 
-  //We create a reference to all the files inside the images folder and pass it to listAll from firebase inside useEffect to list all images on page load
   const imageListRef = ref(storage, "images/");
   useEffect(() => {
     listAll(imageListRef).then((response) => {
-      //console.log(response); logs out "items" for our uploaded files
-      //We loop through the items in the response and call getDownloadUrl for each to get the url.
-      //We pass in the url in our callback function and add it to our existing imageList state (which is an array of all the urls):
       response.items.forEach((item) => {
         getDownloadURL(item).then((url) => {
           //@ts-ignore
@@ -85,7 +80,7 @@ const AdminPage = () => {
           These are the photos that are currently stored in Firebase Storage.{" "}
         </p>
 
-        {/* We have set our imageList to an array of items/urls for each image in our storage bucket */}
+        {/* Map over image urls */}
       </section>
       {imageList.map((url, i) => {
         return (
