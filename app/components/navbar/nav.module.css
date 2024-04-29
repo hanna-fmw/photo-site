@@ -4,19 +4,19 @@
   justify-content: space-between;
   height: 4rem;
   background-color: rgba(15, 15, 15, 0.13);
-  padding: 2rem;
+  padding: 3rem 1rem;
   color: #dcdbdb;
   z-index: 150;
 }
 
 .admin_btn {
-  background-color: var(--bg-dark);
-  color: var(--text-grey);
+  background-color: var(--bg-greenblue);
+  color: var(--heading-light);
+  border: none;
   font-size: 12px;
   font-family: var(--font-roboto);
-
-  border: 1px solid var(--text-grey);
-  padding: 0.4rem 1rem;
+  padding: 0.6rem 1.2rem;
+  cursor: pointer;
 }
 
 .nav_title {
@@ -26,4 +26,12 @@
 .nav_title,
 .admin_btn {
   font-family: var(--font-cormorant);
+}
+
+@media (min-width: 1024px) {
+  .nav {
+    width: 60vw;
+    margin: 0 auto;
+    padding-left: 0rem;
+  }
 }

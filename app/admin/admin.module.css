@@ -25,8 +25,24 @@
 }
 
 .photo {
-  width: 80vw;
+  width: 20vw;
   height: auto;
   object-fit: cover;
   margin: 10px;
+}
+
+@media (min-width: 768px) {
+  .photo {
+    height: 20vw;
+  }
+}
+
+@media (min-width: 1024px) {
+  .admin {
+    width: 60vw;
+    margin: 0 auto;
+  }
+  .photo {
+    height: 10vw;
+  }
 }
