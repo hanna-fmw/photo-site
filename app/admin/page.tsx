@@ -12,6 +12,7 @@ import {
 } from "firebase/storage";
 import { storage } from "@/app/firebase";
 import { v4 } from "uuid";
+import Link from "next/link";
 
 type Image = {
   url: string;
@@ -54,6 +55,11 @@ const AdminPage = () => {
   return (
     <main className={styles.admin}>
       <section className={styles.admin_header}>
+        <div className={styles.btn_container}>
+          <Link href="/" className={styles.back_link}>
+            Back
+          </Link>
+        </div>
         <h2>Upload photos to Firebase</h2>
         <p>
           Upload portfolio photos to Firebase Storage. These photos will
@@ -83,19 +89,21 @@ const AdminPage = () => {
 
         {/* Map over image urls */}
       </section>
-      {imageList.map((url, i) => {
-        return (
-          <div key={i}>
-            <Image
-              src={url as unknown as string}
-              className={styles.photo}
-              width={100}
-              height={100}
-              alt="Portfolio image"
-            />
-          </div>
-        );
-      })}
+      <section className={styles.imageList}>
+        {imageList.map((url, i) => {
+          return (
+            <div key={i}>
+              <Image
+                src={url as unknown as string}
+                className={styles.photo}
+                width={100}
+                height={100}
+                alt="Portfolio image"
+              />
+            </div>
+          );
+        })}
+      </section>
     </main>
   );
 };

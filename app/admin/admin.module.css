@@ -16,12 +16,28 @@
   padding-block: 2rem;
 }
 
+.back_link {
+  color: var(--heading-light);
+  background-color: var(--bg-dark);
+  border: 1px solid var(--heading-light);
+  padding: 0.4rem 1rem;
+  text-decoration: none;
+}
+
 .btn {
   background-color: var(--bg-greenblue);
   color: var(--heading-light);
   padding: 0.5rem 1rem;
+  font-size: 1rem;
   border: none;
   width: 120px;
+}
+
+.imageList {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-block: 1rem;
 }
 
 .photo {
@@ -38,10 +54,6 @@
 }
 
 @media (min-width: 1024px) {
-  .admin {
-    width: 60vw;
-    margin: 0 auto;
-  }
   .photo {
     height: 10vw;
   }

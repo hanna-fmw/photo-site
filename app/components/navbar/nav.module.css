@@ -28,6 +28,10 @@
   font-family: var(--font-cormorant);
 }
 
+.hidden {
+  display: none;
+}
+
 @media (min-width: 1024px) {
   .nav {
     width: 60vw;
