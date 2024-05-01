@@ -37,6 +37,7 @@
   font-family: var(--font-roboto);
   font-size: 12px;
   padding: 0.6rem 2rem;
+  cursor: pointer;
 }
 
 .hero_heading {

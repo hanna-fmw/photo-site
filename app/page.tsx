@@ -33,7 +33,12 @@ export default function Home() {
             <br /> neq fugiat.
           </p>
         </aside>
-        <button className={styles.order_btn}>Order Now</button>
+        <button
+          className={styles.order_btn}
+          onClick={() => alert("Get in touch on xxx.yyy@zzz.com!")}
+        >
+          Order Now
+        </button>
       </section>
 
       <section className={styles.about_container}>
