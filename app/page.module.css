@@ -132,10 +132,6 @@
     flex-wrap: wrap;
     margin: 0 auto;
   }
-
-  .map_section {
-    align-items: flex-end;
-  }
 }
 
 @media (min-width: 1024px) {
