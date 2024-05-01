@@ -76,7 +76,8 @@
 }
 
 .section_h1,
-.section_p {
+.section_p,
+.callout {
   text-align: right;
   padding-right: 1rem;
 }
@@ -85,8 +86,12 @@
   margin-bottom: 0;
 }
 
-.section_p {
+.callout {
   margin-bottom: 1rem;
+}
+
+.callout_span {
+  color: var(--heading-light);
 }
 
 .portfolio_section {

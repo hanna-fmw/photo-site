@@ -70,6 +70,10 @@ export default function Home() {
       <section className={styles.portfolio_section}>
         <h1 className={styles.section_h1}>PORTFOLIO PHOTOS</h1>
         <p className={styles.section_p}>Sample portfolio photos</p>
+        <p className={styles.callout}>
+          Click <span className={styles.callout_span}>Admin button</span> in
+          navbar to upload more.
+        </p>
         <div className={styles.image_gallery}>
           {imageList.map((url: string, i: number) => {
             return (
