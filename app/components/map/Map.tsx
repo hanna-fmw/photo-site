@@ -4,6 +4,7 @@ import "leaflet/dist/leaflet.css";
 
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import markerIcon from "@/public/pink_marker.png";
+//@ts-ignore
 const customIcon = new L.Icon({
   iconUrl: markerIcon.src,
   iconSize: [35, 35],
