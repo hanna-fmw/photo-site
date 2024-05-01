@@ -3,6 +3,14 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import Carousel from "./components/carousel/Carousel";
 import { useImageList } from "@/context/imageListContext";
+//Instead of importing map/Map that is instead of importing the actual Map.tsx, we
+//just import the map FOLDER (where we have both our index.ts with the ssr:false code, and
+//our Map.tsx file). So by just importing the map folder here, Next will take into
+//consideration the index.ts file, and so we will get client-side rendering for
+//our Map.tsx component. So we say:
+import Map from "@/app/components/map";
+//...instead of this:
+//import Map from "@/app/components/map/Map";
 
 export default function Home() {
   //@ts-ignore
@@ -81,6 +89,9 @@ export default function Home() {
             );
           })}
         </div>
+      </section>
+      <section>
+        <Map />
       </section>
     </main>
   );
