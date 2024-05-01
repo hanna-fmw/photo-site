@@ -9,6 +9,7 @@ import { useImageList } from "@/context/imageListContext";
 //consideration the index.ts file, and so we will get client-side rendering for
 //our Map.tsx component. So we say:
 import Map from "@/app/components/map";
+import WhyMeCard from "./components/whyMeCard/WhyMeCard";
 //...instead of this:
 //import Map from "@/app/components/map/Map";
 
@@ -90,6 +91,11 @@ export default function Home() {
             );
           })}
         </div>
+      </section>
+      <section>
+        <WhyMeCard>
+          
+        </WhyMeCard>
       </section>
       <section className={styles.map_section}>
         <h1 className={styles.section_h1}>ADDRESS</h1>

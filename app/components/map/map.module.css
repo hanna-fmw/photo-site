@@ -1,5 +1,13 @@
 .map {
-  width: 30%;
+  width: 60%;
   height: 10rem;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
+  margin-right: 1rem;
+}
+
+@media (min-width: 768px) {
+  .map {
+    width: 40%;
+    height: 12rem;
+  }
 }
