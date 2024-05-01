@@ -43,7 +43,7 @@ export default function Home() {
 
       <section className={styles.about_container}>
         <article className={styles.about_top}>
-          <h1>ABOUT US</h1>
+          <h1>About Me</h1>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae neque
             voluptatum excepturi debitis quibusdam fugiat. Placeat dolor odio
@@ -65,7 +65,7 @@ export default function Home() {
           </div>
           <div className={styles.facts_card}>
             <h1>+10 Years</h1>
-            <p>PORTFOLIO PHOTOS</p>
+            <p>Photos</p>
           </div>
         </article>
       </section>
@@ -73,7 +73,8 @@ export default function Home() {
         <Carousel />
       </section>
       <section className={styles.portfolio_section}>
-        <h1 className={styles.h1}>Portfolio images</h1>
+        <h1 className={styles.portfolio_h1}>Portfolio Photos</h1>
+        <p className={styles.portfolio_p}>Sample portfolio photos</p>
         <div className={styles.image_gallery}>
           {imageList.map((url: string, i: number) => {
             return (
@@ -91,6 +92,7 @@ export default function Home() {
         </div>
       </section>
       <section>
+        <h1 className={styles.h1}>Studio in Stockholm, zoom in...</h1>
         <Map />
       </section>
     </main>

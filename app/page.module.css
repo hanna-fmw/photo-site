@@ -1,11 +1,5 @@
-/* .main {
-  width: 100vw;
- 
-} */
-
 .hero {
   height: 60vh;
-  /* width: 100%; */
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -81,9 +75,18 @@
   padding: 0.4rem;
 }
 
-.h1 {
+.portfolio_h1,
+.portfolio_p {
   text-align: right;
   padding-right: 1rem;
+}
+
+.portfolio_h1 {
+  margin-bottom: 0;
+}
+
+.portfolio_p {
+  margin-bottom: 1rem;
 }
 
 .portfolio_section {

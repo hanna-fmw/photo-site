@@ -22,7 +22,7 @@ h1,
 h2 {
   font-family: var(--font-cormorant);
   color: var(--heading-light);
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   font-size: 1.5rem;
 }
 
