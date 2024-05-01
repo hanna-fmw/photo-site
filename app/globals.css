@@ -19,7 +19,8 @@ body {
 }
 
 h1,
-h2 {
+h2,
+h3 {
   font-family: var(--font-cormorant);
   color: var(--heading-light);
   margin-bottom: 0.5rem;

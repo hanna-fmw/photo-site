@@ -3,15 +3,9 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import Carousel from "./components/carousel/Carousel";
 import { useImageList } from "@/context/imageListContext";
-//Instead of importing map/Map that is instead of importing the actual Map.tsx, we
-//just import the map FOLDER (where we have both our index.ts with the ssr:false code, and
-//our Map.tsx file). So by just importing the map folder here, Next will take into
-//consideration the index.ts file, and so we will get client-side rendering for
-//our Map.tsx component. So we say:
 import Map from "@/app/components/map";
 import WhyMeCard from "./components/whyMeCard/WhyMeCard";
-//...instead of this:
-//import Map from "@/app/components/map/Map";
+import competencies from "@/data/competencies.json";
 
 export default function Home() {
   //@ts-ignore
@@ -92,10 +86,20 @@ export default function Home() {
           })}
         </div>
       </section>
-      <section>
-        <WhyMeCard>
-          
-        </WhyMeCard>
+      <section className={styles.why_me_section}>
+        <h1 className={styles.section_h1}>WHY ME</h1>
+        <article className={styles.card_container}>
+          {competencies.map((competency, i) => {
+            return (
+              <div key={i}>
+                <WhyMeCard
+                  heading={competency.heading}
+                  text={competency.text}
+                />
+              </div>
+            );
+          })}
+        </article>
       </section>
       <section className={styles.map_section}>
         <h1 className={styles.section_h1}>ADDRESS</h1>

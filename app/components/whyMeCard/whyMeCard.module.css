@@ -1,0 +1,28 @@
+.card {
+  width: 80vw;
+  margin: 0 auto;
+  padding-block: 1rem;
+  border-bottom: 0.5px solid var(--heading-light);
+}
+
+.card_heading {
+  font-size: 1rem;
+}
+
+.card_text {
+  font-size: 0.8rem;
+}
+
+@media (min-width: 768px) {
+  .card {
+    width: 30vw;
+    margin: 0;
+    border-bottom: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .card {
+    width: 20vw;
+  }
+}

@@ -110,7 +110,8 @@
 .map_section {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
+  padding-top: 2rem;
 }
 
 @media (min-width: 768px) {
@@ -120,6 +121,20 @@
 
   .photo {
     height: 20vw;
+  }
+}
+
+@media (min-width: 768px) {
+  .card_container {
+    width: 80vw;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 0 auto;
+  }
+
+  .map_section {
+    align-items: flex-end;
   }
 }
 
@@ -133,5 +148,9 @@
   }
   .photo {
     height: 10vw;
+  }
+
+  .card_container {
+    width: 60vw;
   }
 }
