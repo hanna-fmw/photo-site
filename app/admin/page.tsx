@@ -32,7 +32,7 @@ const AdminPage = () => {
           </Link>
         </div>
         <h2>Upload photos to Firebase</h2>
-        <p>
+        <p className={styles.p_admin}>
           Upload portfolio photos to Firebase Storage. These photos will
           automatically display in the Portfolio section on the landing page
         </p>
@@ -54,14 +54,14 @@ const AdminPage = () => {
             Upload File
           </button>
         </section>
-        <p>
+        <p className={styles.p_admin}>
           Your uploaded image has been added to the image grid below, and should
           display in the gallery section of the landing page
         </p>
-        <p> (Click the Back button above to go back to the landing page) </p>
+        <p className={styles.p_admin}> (Click the Back button above to go back to the landing page) </p>
 
         <h2>Currently uploaded photos</h2>
-        <p>
+        <p className={styles.p_admin}>
           These are the photos that are currently stored in Firebase Storage.{" "}
         </p>
       </section>
