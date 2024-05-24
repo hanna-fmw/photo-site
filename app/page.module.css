@@ -13,7 +13,6 @@
 .hero_right {
   background-color: var(--bg-dark);
   width: 50%;
-  padding-right: 1rem;
 }
 
 .hero_image {
@@ -52,7 +51,7 @@
 
 .hero_text_container {
   text-align: right;
-  padding-top: 1rem;
+  padding-right: 2rem;
 }
 
 .about_container {
@@ -60,7 +59,7 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  padding: 2rem 1rem;
+  padding: 2rem;
 }
 
 .about_bottom {
@@ -80,7 +79,6 @@
 .section_p,
 .callout {
   text-align: right;
-  padding-right: 1rem;
 }
 
 .section_h1 {
@@ -95,16 +93,23 @@
   color: var(--heading-light);
 }
 
-.portfolio_section {
-  padding-block: 2rem;
+.portfolio_container {
+  background-color: var(--bg-dark);
+  padding: 2rem;
 }
 
 .image_gallery {
+  margin-block: 2rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   background-color: var(--bg-dark);
   gap: 1rem;
+}
+
+.why_me_container {
+  background-color: var(--bg-dark);
+  padding: 0rem 2rem;
 }
 
 .photo {
@@ -122,15 +127,18 @@
 
 @media (min-width: 768px) {
   .hero_image {
-    width: 60vw;
+    width: 80%;
   }
 
   .photo {
     height: 20vw;
   }
-}
 
-@media (min-width: 768px) {
+  .section_why_me {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
   .card_container {
     width: 80vw;
     display: flex;
@@ -154,5 +162,6 @@
 
   .card_container {
     width: 60vw;
+    padding: 0.5rem;
   }
 }

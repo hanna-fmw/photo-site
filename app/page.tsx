@@ -71,12 +71,12 @@ export default function Home() {
       <section className={styles.carousel_img_container}>
         <Carousel />
       </section>
-      <section className={styles.portfolio_section}>
+      <section className={styles.portfolio_container}>
         <h1 className={styles.section_h1}>PORTFOLIO PHOTOS</h1>
-        <p className={styles.section_p}>Sample portfolio photos</p>
-        <p className={styles.callout}>
-          Click <span className={styles.callout_span}>Admin button</span> in
-          navbar to upload more.
+        <p className={styles.section_p}>
+          Sample portfolio photos. Click{" "}
+          <span className={styles.callout_span}>Admin button</span> in navbar to
+          upload more.
         </p>
         <div className={styles.image_gallery}>
           {imageList.map((url: string, i: number) => {
@@ -94,8 +94,10 @@ export default function Home() {
           })}
         </div>
       </section>
-      <section className={styles.why_me_section}>
-        <h1 className={styles.section_h1}>WHY ME</h1>
+      <section className={styles.why_me_container}>
+        <h1 className={`${styles.section_h1} ${styles.section_why_me}`}>
+          WHY ME
+        </h1>
         <article className={styles.card_container}>
           {competencies.map((competency, i) => {
             return (

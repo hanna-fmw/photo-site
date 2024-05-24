@@ -4,7 +4,7 @@
   justify-content: space-between;
   height: 4rem;
   background-color: rgba(15, 15, 15, 0.13);
-  padding: 3rem 1rem;
+  padding: 3rem 2rem;
   color: #dcdbdb;
   z-index: 150;
 }
@@ -36,6 +36,5 @@
   .nav {
     width: 60vw;
     margin: 0 auto;
-    padding-left: 0rem;
   }
 }

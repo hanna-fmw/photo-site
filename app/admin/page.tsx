@@ -37,6 +37,7 @@ const AdminPage = () => {
           automatically display in the Portfolio section on the landing page
         </p>
         <section className={styles.btn_container}>
+          <h4>Step 1:</h4>
           <input
             className={styles.btn}
             type="file"
@@ -48,10 +49,16 @@ const AdminPage = () => {
               }
             }}
           />
+          <h4>Step 2:</h4>
           <button onClick={uploadImage} className={styles.btn}>
             Upload File
           </button>
         </section>
+        <p>
+          Your uploaded image has been added to the image grid below, and should
+          display in the gallery section of the landing page
+        </p>
+        <p> (Click the Back button above to go back to the landing page) </p>
 
         <h2>Currently uploaded photos</h2>
         <p>

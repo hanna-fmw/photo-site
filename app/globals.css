@@ -23,14 +23,23 @@ h2,
 h3 {
   font-family: var(--font-cormorant);
   color: var(--heading-light);
-  margin-bottom: 0.5rem;
+  margin-block: 1rem;
   font-size: 1.5rem;
+}
+
+h4 {
+  font-family: var(--font-cormorant);
+  color: var(--heading-light);
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
 }
 
 p {
   color: var(--text-grey);
   font-family: var(--font-roboto);
-  font-size: 1rem;
+  font-size: 0.8rem;
+  margin-block: 0.5rem;
+  text-align: right;
 }
 
 ul,
