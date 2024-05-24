@@ -8,7 +8,6 @@ import WhyMeCard from "./components/whyMeCard/WhyMeCard";
 import competencies from "@/data/competencies.json";
 
 export default function Home() {
-  //@ts-ignore
   const { imageList } = useImageList();
 
   return (

@@ -8,7 +8,6 @@ const Nav = () => {
   const router = useRouter();
   const pathname = usePathname();
 
-  // Check if the current pathname is /admin
   const isAdminRoute = pathname === "/admin";
 
   return (

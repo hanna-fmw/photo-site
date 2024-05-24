@@ -1,5 +1,4 @@
 "use client";
-// ImageListContext.js
 import React, { createContext, useState, useEffect, useContext } from "react";
 import { ref, getDownloadURL, listAll } from "firebase/storage";
 import { storage } from "@/app/firebase";
@@ -8,34 +7,40 @@ type ImageListProviderProps = {
   children: React.ReactNode;
 };
 
-type Image = {
-  url: string;
+type ImageListContextType = {
+  imageList: string[];
+  setImageList: React.Dispatch<React.SetStateAction<string[]>>;
+  refreshImageList: () => void;
 };
 
-const ImageListContext = createContext(undefined);
+const ImageListContext = createContext<ImageListContextType | undefined>(
+  undefined,
+);
 
 export const ImageListProvider = ({ children }: ImageListProviderProps) => {
-  //We keep track of the URL for each of the images in our storage bucket:
-  const [imageList, setImageList] = useState<Image[]>([]);
-  //We create a reference to all the files inside the images folder and pass it to listAll from firebase inside useEffect to list all images on page load
+  const [imageList, setImageList] = useState<string[]>([]);
   const imageListRef = ref(storage, "images/");
-  useEffect(() => {
+
+  const refreshImageList = () => {
     listAll(imageListRef).then((response) => {
-      //console.log(response); logs out "items" for our uploaded files
-      //We loop through the items in the response and call getDownloadUrl for each to get the url.
-      //We pass in the url in our callback function and add it to our existing imageList state (which is an array of all the urls):
-      response.items.forEach((item) => {
-        getDownloadURL(item).then((url) => {
-          //@ts-ignore
-          setImageList((prev) => [...prev, url]);
-        });
+      const urls = response.items.map((item) =>
+        getDownloadURL(item).then((url) => url),
+      );
+      Promise.all(urls).then((urls) => {
+        setImageList(urls);
       });
     });
+  };
+
+  useEffect(() => {
+    refreshImageList();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    // @ts-ignore
-    <ImageListContext.Provider value={{ imageList, setImageList }}>
+    <ImageListContext.Provider
+      value={{ imageList, setImageList, refreshImageList }}
+    >
       {" "}
       {children}
     </ImageListContext.Provider>
@@ -43,5 +48,9 @@ export const ImageListProvider = ({ children }: ImageListProviderProps) => {
 };
 
 export const useImageList = () => {
-  return useContext(ImageListContext);
+  const context = useContext(ImageListContext);
+  if (context === undefined) {
+    throw new Error("useImageList must be used within an ImageListProvider");
+  }
+  return context;
 };

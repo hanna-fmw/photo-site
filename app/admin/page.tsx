@@ -1,56 +1,27 @@
 "use client";
 import styles from "./admin.module.css";
 import Image from "next/image";
-import { ChangeEvent } from "react";
-import { useState, useEffect } from "react";
-import {
-  ref,
-  uploadBytes,
-  getDownloadURL,
-  listAll,
-  list,
-} from "firebase/storage";
+import { ChangeEvent, useState } from "react";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { storage } from "@/app/firebase";
 import { v4 } from "uuid";
 import Link from "next/link";
-
-type Image = {
-  url: string;
-};
+import { useImageList } from "@/context/imageListContext";
 
 const AdminPage = () => {
-  //State to hold info about which image the user has picked
   const [file, setFile] = useState<File | null>(null);
+  const { imageList, refreshImageList } = useImageList();
 
-  //Upload image to Firebase Storage on click
   const uploadImage = () => {
     if (file == null) return;
 
     const imageRef = ref(storage, `images/${file.name + v4()}`);
-
     uploadBytes(imageRef, file).then((snapshot) => {
-      getDownloadURL(snapshot.ref).then((url) => {
-        //@ts-ignore
-        setImageList((prev) => [...prev, url]);
+      getDownloadURL(snapshot.ref).then(() => {
+        refreshImageList();
       });
     });
   };
-
-  //State to hold the urls for the images in our storage bucket:
-  const [imageList, setImageList] = useState<Image[]>([]);
-
-  const imageListRef = ref(storage, "images/");
-  useEffect(() => {
-    listAll(imageListRef).then((response) => {
-      response.items.forEach((item) => {
-        getDownloadURL(item).then((url) => {
-          //@ts-ignore
-          setImageList((prev) => [...prev, url]);
-        });
-      });
-    });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   return (
     <main className={styles.admin}>
@@ -86,11 +57,9 @@ const AdminPage = () => {
         <p>
           These are the photos that are currently stored in Firebase Storage.{" "}
         </p>
-
-        {/* Map over image urls */}
       </section>
       <section className={styles.imageList}>
-        {imageList.map((url, i) => {
+        {imageList.map((url: string, i: number) => {
           return (
             <div key={i}>
               <Image
